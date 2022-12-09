@@ -215,7 +215,7 @@
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                        <h5 class="m-0">$350,000</h5>
+                                        <h5 class="m-0">UGX.350,000</h5>
                                     </div>
                                 </div>
                             </div>

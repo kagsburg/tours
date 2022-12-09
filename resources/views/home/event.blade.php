@@ -51,13 +51,13 @@
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Queen Elizabeth</small>
                                     <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>8 Person</small>
                                 </div>
                                 <a class="h5 text-decoration-none" href="">How To Make The Best Travel Gear For Your Group?</a>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                        <h5 class="m-0">$350,000</h5>
+                                        <h5 class="m-0">UGX,350,000</h5>
                                     </div>
                                 </div>
                             </div>
@@ -70,12 +70,12 @@
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Kidepo Valley</small>
                                     <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>7 Person</small>
                                 </div>
                                 <a class="h5 text-decoration-none" href="">Discover amazing areas within the dry region</a>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
-                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.9 <small>(250)</small></h6>
                                         <h5 class="m-0">UGX.350,000</h5>
                                     </div>
                                 </div>
