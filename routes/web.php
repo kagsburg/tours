@@ -21,9 +21,7 @@ Route::get('/about', function () {
     return view('home.about');
 });
 
-Route::get('/events', function () {
-    return view('home.event');
-});
+
 
 Route::get('/contact', function () {
     return view('home.contact');

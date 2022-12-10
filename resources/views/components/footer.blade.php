@@ -22,11 +22,11 @@
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="./about"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="./blog"><i class="fa fa-angle-right mr-2"></i>Blog</a>
-                    <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a>
+                    {{-- <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a> --}}
                     <a class="text-white-50 mb-2" href="./contact"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                     {{-- <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    {{-- <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
@@ -34,11 +34,11 @@
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="./about"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="./blog"><i class="fa fa-angle-right mr-2"></i>Blog</a>
-                    <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a>
+                    {{-- <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a> --}}
                     <a class="text-white-50 mb-2" href="./contact"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                     {{-- <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    {{-- <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
