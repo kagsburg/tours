@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta content="Tours And LifeStyles" name="keywords">
         <meta content="Tours And LifeStyles" name="description">
-        <title>WANDYAKA</title>
+        <title>Regular Guy UG</title>
 
 
         <!-- Fonts -->
@@ -66,7 +66,10 @@
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary"><span class="text-dark">WAND</span>YAKA</h1>
+                    <img src="{{asset('img/logo3.png')}}" alt="Logo">
+                    {{-- <h1 class="m-0 text-primary">RE<span class="text-dark">GULAR</span>
+                        <p>GUY<small>UG</small></p>
+                    </h1> --}}
                 </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
