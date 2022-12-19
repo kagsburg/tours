@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('media', function (Blueprint $table) {
-            $table->id();
-            $table->string('img_path');
-            $table->string('img_name');
-            $table->string('img_type');
-            $table->bigInteger('article_id')->index()->nullable();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->foreign('role_id')->references('id')->on('roles');
         });
     }
 
@@ -30,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('content');
             $table->integer('status')->default(1);
             $table->bigInteger('category_id')->unsigned()->nullable();
-            $table->bigIncrements('cover_image_id')->unsigned()->nullable();
+            $table->string('cover_image')->nullable();
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->bigInteger('views')->unsigned()->nullable();
             $table->bigInteger('likes')->unsigned()->nullable();

@@ -27,6 +27,15 @@ Route::get('/contact', function () {
     return view('home.contact');
 });
 
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+Route::get('admin/articles', function () {
+    return view('admin.article');
+});
+Route::get('admin/categories', function () {
+    return view('admin.category');
+});
 Route::get('/blog', function () {
     return view('home.blog');
 });
