@@ -15,27 +15,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.index');
-});
+})->name('home');
 
-Route::get('/about', function () {
-    return view('home.about');
-});
+Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
+Route::get('/blog/{id}', [App\Http\Controllers\AboutController::class, 'show'])->name('blog.show');
+Route::get('/category/{id}', [App\Http\Controllers\AboutController::class, 'category'])->name('category.show');
 
 
 
 Route::get('/contact', function () {
     return view('home.contact');
-});
+})->name('contact');
 
-Route::get('/admin', function () {
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-});
-Route::get('admin/articles', function () {
-    return view('admin.article');
-});
+})->name('admin.dashboard');
+Route::get('admin/articles', [App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
 Route::get('admin/categories', function () {
     return view('admin.category');
-});
+})->name('admin.categories.index');
 Route::get('/blog', function () {
     return view('home.blog');
-});
+})->name('blog');
+
+Route::get('admin/articles/add',[App\Http\Controllers\ArticleController::class, 'addarticle'])->name('addarticle');
+Route::post('/articles/store',[App\Http\Controllers\ArticleController::class, 'store'])->name('storearticle');
