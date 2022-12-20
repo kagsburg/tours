@@ -14,4 +14,10 @@ class Category extends Model
         'created_by',
         'is_deleted'
     ];
+
+
+
+    public function articles(){
+        return $this->hasMany(Article::class);
+    }
 }

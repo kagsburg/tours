@@ -46,13 +46,15 @@
           </a>
           <ul class="mt-6">
             <li class="relative px-6 py-3">
+              @if  (request()->is('admin/dashboard'))
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
+              @endif
               <a
                 class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="index.html"
+                href="{{route('admin.dashboard')}}"
               >
                 <svg
                   class="w-5 h-5"
@@ -74,9 +76,22 @@
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              @if  (request()->is('admin/categories*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
               <a
+<<<<<<< HEAD
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="/admin/categories"
+=======
+              
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 
+                 dark:hover:text-gray-200 "
+                href="{{route('admin.categories.index')}}"
+>>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
               >
                 <svg
                   class="w-5 h-5"
@@ -96,9 +111,19 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
+              @if  (request()->is('admin/articles*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+<<<<<<< HEAD
                 href="/admin/articles"
+=======
+                href="{{route('articles')}}"
+>>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
               >
                 <svg
                   class="w-5 h-5"

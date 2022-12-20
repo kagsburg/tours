@@ -6,10 +6,10 @@
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
                 <a href="" class="navbar-brand">
-                    <h1 class="text-primary"><span class="text-white">TRAVEL</span>ER</h1>
+                    <h1 class="text-primary"><span class="text-white text-uppercase">Regular</span>GUY</h1>
                 </a>
                 <p>Sed ipsum clita tempor ipsum ipsum amet sit ipsum lorem amet labore rebum lorem ipsum dolor. No sed vero lorem dolor dolor</p>
-                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
+                <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Me</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -18,28 +18,28 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Our Services</h5>
+                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Useful Links</h5>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="./about"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="./blog"><i class="fa fa-angle-right mr-2"></i>Blog</a>
+                    <a class="text-white-50 mb-2" href="{{route('about')}}"><i class="fa fa-angle-right mr-2"></i>About</a>
+                    <a class="text-white-50 mb-2" href="{{route('blog')}}"><i class="fa fa-angle-right mr-2"></i>Blog</a>
                     {{-- <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a> --}}
-                    <a class="text-white-50 mb-2" href="./contact"><i class="fa fa-angle-right mr-2"></i>Contact</a>
+                    <a class="text-white-50 mb-2" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                     {{-- <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
                     <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
                     {{-- <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Useful Links</h5>
+                {{-- <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;"></h5>
                 <div class="d-flex flex-column justify-content-start">
                     <a class="text-white-50 mb-2" href="./about"><i class="fa fa-angle-right mr-2"></i>About</a>
                     <a class="text-white-50 mb-2" href="./blog"><i class="fa fa-angle-right mr-2"></i>Blog</a>
-                    {{-- <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a> --}}
+                    {{-- <a class="text-white-50 mb-2" href="./events"><i class="fa fa-angle-right mr-2"></i>Events</a> 
                     <a class="text-white-50 mb-2" href="./contact"><i class="fa fa-angle-right mr-2"></i>Contact</a>
                     {{-- <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
-                    {{-- <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> --}}
-                </div>
+                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
+                    {{-- <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a> 
+                </div> --}}
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
