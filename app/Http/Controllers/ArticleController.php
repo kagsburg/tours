@@ -1,21 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< HEAD
 
 use Illuminate\Http\Request;
-=======
 use App\Models\Article;
-use Illuminate\Http\Request;
+
 use Illuminate\Validation\Rule;
 use App\Models\Category;
->>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
 
 class ArticleController extends Controller
 {
     //
-<<<<<<< HEAD
-=======
     public function addarticle(){
         $categories = Category::where('is_deleted', 0)->get();
 
@@ -68,5 +63,4 @@ class ArticleController extends Controller
         // $article->save();
         return redirect('/admin/articles')->with('success', 'Article saved!');
     }
->>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
 }

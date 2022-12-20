@@ -44,7 +44,7 @@ Route::get('/admin/dashboard', function () {
 Route::get('admin/articles', function () {
     return view('admin.article');
 })->middleware('auth');
-Route::get('admin/categories', [CategoryController::class, 'index'])->name('categories')->middleware('auth');
+Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index')->middleware('auth');
 Route::get('/blog', function () {
     return view('home.blog');
 });
@@ -57,9 +57,7 @@ Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');
 Route::put('/categories/update/{id}',[CategoryController::class, 'update'])->middleware('auth');
 
 Route::get('admin/articles', [App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
-Route::get('admin/categories', function () {
-    return view('admin.category');
-})->name('admin.categories.index');
+
 Route::get('/blog', function () {
     return view('home.blog');
 })->name('blog');

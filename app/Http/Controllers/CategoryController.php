@@ -9,6 +9,7 @@ class CategoryController extends Controller
     //
     public function index(){
         $categories=Category::where('is_deleted','=', '0' )->orderBy('id','DESC')->paginate(15);
+        // dd($categories);
         return view('admin.category',[
             'categories'=>$categories
         ]);        

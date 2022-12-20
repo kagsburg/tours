@@ -67,7 +67,7 @@
               <tbody
                 class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
               >
-              @unless($categories->isEmpty())
+              @unless(count($categories)==0)
                 @foreach ($categories as $category)
                     <x-tableitem :item="$category" />
                 @endforeach

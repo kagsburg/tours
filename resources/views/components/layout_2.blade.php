@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('admin_assets/css/tailwind.output.css') }}" />
   
     <script
@@ -25,7 +26,7 @@
     ></script>
     <script src="{{asset('admin_assets/js/charts-lines.js')}}"></script>
     <script src="{{asset('admin_assets/js/charts-pie.js')}}"></script>
-
+    
    
   </head>
   <body>
@@ -83,15 +84,10 @@
               ></span>
               @endif
               <a
-<<<<<<< HEAD
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="/admin/categories"
-=======
               
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 
                  dark:hover:text-gray-200 "
                 href="{{route('admin.categories.index')}}"
->>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
               >
                 <svg
                   class="w-5 h-5"
@@ -119,11 +115,7 @@
               @endif
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-<<<<<<< HEAD
-                href="/admin/articles"
-=======
                 href="{{route('articles')}}"
->>>>>>> 010474cdd42bfb32ebd753687b231e64e87bd1e7
               >
                 <svg
                   class="w-5 h-5"
@@ -706,5 +698,37 @@
         </main>
       </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
+    <script src="https://cdn.ckbox.io/CKBox/1.2.1/ckbox.js"></script>
+    <script>
+            ClassicEditor.create( document.querySelector( '#editor' ), {
+                    ckbox: {
+                        tokenUrl: 'https://94417.cke-cs.com/token/dev/bbb59120f2f511daf62737efc0d45249added11fd7166d8d976d6cf53626?limit=10',
+                    },
+                    toolbar: [
+                         'imageUpload', '|', 'heading', '|', 'undo', 'redo', '|', 'bold', 'italic', '|',
+                        'blockQuote', 'indent', 'link', '|', 'bulletedList', 'numberedList'
+                    ],
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+  var quill = new Quill('#textarea', {
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, false] }],
+        ['bold', 'italic', 'underline','strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        ['link', 'image'],
+        ['clean']
+      ]
+    },
+    // formats: ['header', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', ],
+    theme: 'snow'
+  });
+</script> -->
   </body>
 </html>

@@ -37,7 +37,7 @@
                             </div>
                             <h2 class="mb-3">{{$article->description}}</h2>
 
-                            {{$article->content}}
+                            {!! $article->content !!}
                            
                             
                         </div>
