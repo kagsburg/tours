@@ -32,7 +32,7 @@ class ArticleController extends Controller
             'cover_image' => 'required'
         ]);
         //add user id
-        $formfields['user_id'] = 1;
+        $formfields['user_id'] = auth()->user()->id;
         // get uploaded cover Image 
         if ($request->hasFile('cover_image')){
             $coverImage = $request->file('cover_image');
@@ -62,5 +62,38 @@ class ArticleController extends Controller
         // ]);
         // $article->save();
         return redirect('/admin/articles')->with('success', 'Article saved!');
+    }
+    //function to delete article
+    public function delete(Article $listing){
+        $listing->is_deleted = 1;
+        $listing->save();
+        return redirect('/admin/articles')->with('success', 'Article deleted!');
+    }
+    //function to edit article
+    public function edit(Article $listing){
+        $categories = Category::where('is_deleted', 0)->get();
+        return view('admin.editarticle', [
+            'article' => $listing,
+            'categories' => $categories
+        ]);
+    }
+    //function to update article
+    public function update(Request $request, Article $listing){
+        $formfields = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+        ]);
+        //add user id
+        $formfields['user_id'] = 1;
+        // get uploaded cover Image 
+        if ($request->hasFile('cover_image')){
+            $coverImage = $request->file('cover_image');
+            $coverImageName = time() . '.' . $coverImage->getClientOriginalExtension();
+            $coverImage->move(public_path('images'), $coverImageName);
+            $formfields['cover_image'] = $coverImageName;
+        }
+        $listing->update($formfields);
+        return redirect('/admin/articles')->with('success', 'Article updated!');
     }
 }

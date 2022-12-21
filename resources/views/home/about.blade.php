@@ -48,7 +48,7 @@
     <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-3 pb-3">
-                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our Blog</h6>
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">My Blog</h6>
                 <h1>Latest From My Blog</h1>
             </div>
             <div class="row pb-3">
@@ -57,7 +57,7 @@
                 <div class="col-lg-4 col-md-6 mb-4 pb-2">
                     <div class="blog-item">
                         <div class="position-relative">
-                            <img class="img-fluid w-100" src="images/{{$article->cover_image}}" alt="">
+                            <img class="img-fluid w-100" src="{{asset('images/'.$article->cover_image)}}" alt="">
                             <div class="blog-date">
                                 <h6 class="font-weight-bold mb-n1 text-white">{{$article->created_at->format('d') }}</h6>
                                 <small class="text-white text-uppercase">{{$article->created_at->format('M')}}</small>

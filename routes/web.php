@@ -16,15 +16,9 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-})->name('home')->middleware('guest');
-Route::get('/home', function () {
-    return view('home.index');
-});
-Route::get('/about', function () {
-    return view('home.about');
-})->middleware('guest');
+Route::get('/', [App\Http\Controllers\AboutController::class, 'home'])->name('home')->middleware('guest');
+Route::get('/home',[App\Http\Controllers\AboutController::class, 'home']);
+
 
 
 Route::get('/about', [App\Http\Controllers\AboutController::class, 'index'])->name('about');
@@ -36,14 +30,13 @@ Route::get('/category/{id}', [App\Http\Controllers\AboutController::class, 'cate
 Route::get('/contact', function () {
     return view('home.contact');
 })->name('contact')->middleware('guest');
+Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store'])->name('contact.store')->middleware('guest');
 
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard')->middleware('auth');
-Route::get('admin/articles', function () {
-    return view('admin.article');
-})->middleware('auth');
+
 Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index')->middleware('auth');
 Route::get('/blog', function () {
     return view('home.blog');
@@ -52,11 +45,16 @@ Route::get('/login',[UserController::class, 'login'])->name('login')->middleware
 Route::post('/users/authenicate',[UserController::class,'authenicate']);
 Route::post('/category/add',[CategoryController::class,'store']);
 Route::delete('/category/delete/{id}',[CategoryController::class,'delete']);
+Route::delete('admin/articles/delete/{listing}',[App\Http\Controllers\ArticleController::class,'delete'])->name('articles.delete')->middleware('auth');
 Route::get('/category/{listing}/edit',[CategoryController::class, 'edit'])->middleware('auth');
+Route::get('admin/articles/{listing}/edit',[App\Http\Controllers\ArticleController::class, 'edit'])->name('articles.edit')->middleware('auth');
+Route::put('admin/articles/update/{listing}',[App\Http\Controllers\ArticleController::class, 'update'])->name('updatearticle')->middleware('auth');
 Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');
 Route::put('/categories/update/{id}',[CategoryController::class, 'update'])->middleware('auth');
-
-Route::get('admin/articles', [App\Http\Controllers\ArticleController::class, 'index'])->name('articles');
+Route::get ('/profile',[UserController::class, 'profile'])->name('profile.show')->middleware('auth');
+Route::put('/profile/update/{id}',[UserController::class, 'update'])->name('profile.update')->middleware('auth');
+Route::put('/profile/updatepassword/{id}',[UserController::class, 'updatepassword'])->name('profile.updatepassword')->middleware('auth');
+Route::get('admin/articles', [App\Http\Controllers\ArticleController::class, 'index'])->name('articles')->middleware('auth');
 
 Route::get('/blog', function () {
     return view('home.blog');

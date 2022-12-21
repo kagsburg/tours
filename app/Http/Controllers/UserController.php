@@ -37,8 +37,36 @@ class UserController extends Controller
             return back()->withErrors('email','Invalid Credentials')->onlyInput('email');
         }
         $request->session()->regenerateToken();
-        return redirect('admin')->with('success',"User Logged In Successfully");
+        return redirect('admin/articles')->with('success',"User Logged In Successfully");
     }
+    //user profile
+    public function profile(){
+        $user_info = auth()->user();
+        return view('admin.profile',[
+            'user_info'=>$user_info
+        ]);
+    }
+    //update user profile
+    public function update(Request $request, User $id){
+        $users = $request->validate([
+            'name'=>['required', 'min:3'],
+            'email'=>['required','email',Rule::unique('users','email')->ignore($id->id)],           
+        ]);
+        $id->name=$users['name'];
+        $id->email=$users['email'];
+        $id->save();
+        return redirect('/profile')->with('success',"User Profile Updated Successfully");
+    }
+    //reset password
+    public function updatepassword(Request $request, User $id){
+        $users = $request->validate([
+            'password'=>['required','min:8','confirmed'],
+        ]);
+        $id->password=bcrypt($users['password']);
+        $id->save();
+        return redirect('/profile')->with('success',"User Password Updated Successfully");
+    }
+    //logout user
     public function logout(Request $request){
         auth()->logout();
         $request->session()->invalidate();
