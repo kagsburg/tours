@@ -29,8 +29,8 @@ Route::get('/category/{id}', [App\Http\Controllers\AboutController::class, 'cate
 
 Route::get('/contact', function () {
     return view('home.contact');
-})->name('contact')->middleware('guest');
-Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store'])->name('contact.store')->middleware('guest');
+})->name('contact');
+Route::post('/contact',[App\Http\Controllers\ContactController::class, 'store'])->name('contact.store');
 
 
 Route::get('/admin/dashboard', function () {
@@ -38,9 +38,7 @@ Route::get('/admin/dashboard', function () {
 })->name('admin.dashboard')->middleware('auth');
 
 Route::get('admin/categories', [CategoryController::class, 'index'])->name('admin.categories.index')->middleware('auth');
-Route::get('/blog', function () {
-    return view('home.blog');
-});
+Route::get('/blog', [App\Http\Controllers\AboutController::class, 'list'])->name('blog.list');
 Route::get('/login',[UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/users/authenicate',[UserController::class,'authenicate']);
 Route::post('/category/add',[CategoryController::class,'store']);

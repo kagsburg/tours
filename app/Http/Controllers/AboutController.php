@@ -32,6 +32,7 @@ class AboutController extends Controller
         ->get();
         return view('home.singleblog', ['article' => $id, 'categories' => $categories, 'recent'=>$related]);
     }
+    //get all available articles
 
     // //get articles by category
     public function category(Category $id){

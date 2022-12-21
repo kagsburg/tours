@@ -3,6 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="blog, Regular,Guy, Regular guy ug, ">
+  <meta property="og:site_name" content="Regular Guy UG" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Regular Guy UG" />
+  <meta property="og:description"
+    content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@charitywater" />
+  <meta name="twitter:title" content="Regular Guy UG" />
+  <meta name="twitter:description"
+    content="Blogging about anything and everything" />
+  <meta name="twitter:image" content="" />
+  <meta property="og:description"
+    content=" Blogging about anything and everything" />
+  <meta property="og:image"
+    content="https://images.ctfassets.net/wvozpes63uc8/3r2HxoLc7yulCiFl5ugjRg/0d4c05c22e877bca637aa735ea8bdb32/charity-water-social-preview.jpeg" />
+  <meta property="og:site_name" content="Blogging about anything and everything" />
+  <meta property="og:title" content="Regular Guy UG" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
         <meta content="Tours And LifeStyles" name="keywords">
         <meta content="Tours And LifeStyles" name="description">
         <title>Regular Guy UG</title>
