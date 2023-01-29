@@ -13,7 +13,49 @@
         </div>
     </div>
     <!-- Header End -->
-
+    <!-- Booking Start -->
+    <div class="container-fluid booking mt-5 pb-5">
+        <div class="container pb-5">
+            <div class="bg-light shadow" style="padding: 30px;">
+                <form action="{{route('subscribe')}}" method="POST">
+                    @csrf 
+                <div class="row align-items-center" style="min-height: 60px;">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3 mb-md-0">
+                                   <label><h3>Subscribe to our newsletter</h3></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 mb-md-0">
+                                    <div class="date" >
+                                        <input type="email" class="form-control p-4 " placeholder="Email Address" name="subscriber"/>
+                                        @error('subscriber')
+                                        <p class="help-block text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            @if (session()->has('success'))
+            <div class="alert alert-success">{{ session()->get('success') }}
+            </div>
+            @endif
+            @if (session()->has('error'))
+            <div class="alert alert-danger">{{ session()->get('error') }}
+            </div>
+            @endif
+        </div>
+    </div>
+    <!-- Booking End -->
 
     <!-- Blog Start -->
     <div class="container-fluid py-5">
@@ -115,29 +157,36 @@
                 </div>
     
                 <div class="col-lg-4 mt-5 mt-lg-0">
-                    <!-- Author Bio -->
-                    <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">
-                        <img src="img/user.jpg" class="img-fluid mx-auto mb-3" style="width: 100px;">
-                        <h3 class="text-primary mb-3">John Doe</h3>
-                        <p>Conset elitr erat vero dolor ipsum et diam, eos dolor lorem, ipsum sit no ut est  ipsum erat kasd amet elitr</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
+                            <!-- Author Bio -->
+                            <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">
+                                <img 
+                                @if(session('author.profile_img') == null)
+                                src="{{asset('img/img_place.jpg')}}"
+                                @else
+                                src="{{asset('images/'.session('author.profile_img')) }}" 
+                                @endif
+                                
+                                class="img-fluid mx-auto mb-3" style="width: 100px;">
+                                <h3 class="text-primary mb-3">{{session('author.name')}}</h3>
+                                <p>{{ session('author.profile_description') }}</p>
+                                <div class="d-flex justify-content-center">
+                                    <a class="text-primary px-2"href="{{ session('socials.0.facebook') }}"  target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a class="text-primary px-2" href="{{ session('socials.0.twitter') }}"  target="_blank">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    {{-- <a class="text-primary px-2" href="">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a> --}}
+                                    <a class="text-primary px-2" href="{{ session('socials.0.instagram') }}"  target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a class="text-primary px-2"href="{{  session('socials.0.youtube') }}"  target="_blank">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>  
     
                     {{-- <!-- Search Form -->
                     <div class="mb-5">

@@ -7,6 +7,7 @@ use App\Models\Article;
 
 use Illuminate\Validation\Rule;
 use App\Models\Category;
+use App\Models\User;
 
 class ArticleController extends Controller
 {
@@ -40,17 +41,17 @@ class ArticleController extends Controller
             $coverImage->move(public_path('images'), $coverImageName);
             $formfields['cover_image'] = $coverImageName;
         }
-        Article::create($formfields);
-        // if ($request->hasFile('other_images')){
-        //     $otherImages = $request->file('other_images');
-        //     foreach ($otherImages as $otherImage){
-        //         $otherImageName = time() . '.' . $otherImage->getClientOriginalExtension();
-        //         $otherImage->move(public_path('images'), $otherImageName);
-        //         // $article->images()->create([
-        //         //     'image' => $otherImageName
-        //         // ]);
-        //     }
-        // }
+        $article = Article::create($formfields);
+        // notify other subscribers about new article
+        //   get all subscribers
+         $subscribers = User::where('role_id', '4')->get();
+            // send email to all subscribers
+            foreach($subscribers as $subscriber){
+                $subscriber->notify(new \App\Notifications\NewArticle($article));
+            }
+    
+
+
         return redirect('/admin/articles')->with('success', 'Article saved!');
         // $article = new Article([
         //     'title' => $request->get('title'),

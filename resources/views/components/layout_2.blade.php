@@ -8,7 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    {{-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> --}}
+    <script src="https://cdn.tiny.cloud/1/ufugwbnixbbit1q0ajpbf40ynsmihpvb7ra2jglfe7mgrblb/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="{{ asset('admin_assets/css/tailwind.output.css') }}" />
   
     <script
@@ -16,14 +17,7 @@
       defer
     ></script>
     <script src="{{asset('admin_assets/js/init-alpine.js')}}"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      defer
-    ></script>
+
     <script src="{{asset('admin_assets/js/charts-lines.js')}}"></script>
     <script src="{{asset('admin_assets/js/charts-pie.js')}}"></script>
     
@@ -46,7 +40,7 @@
             
           </a>
           <ul class="mt-6">
-            <li class="relative px-6 py-3">
+            {{-- <li class="relative px-6 py-3">
               @if  (request()->is('admin/dashboard'))
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
@@ -54,7 +48,8 @@
               ></span>
               @endif
               <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
+                class="inline-flex items-center w-full text-sm font-semibold 
+                text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
                 href="{{route('admin.dashboard')}}"
               >
                 <svg
@@ -73,7 +68,7 @@
                 </svg>
                 <span class="ml-4">Dashboard</span>
               </a>
-            </li>
+            </li> --}}
           </ul>
           <ul>
             <li class="relative px-6 py-3">
@@ -85,8 +80,12 @@
               @endif
               <a
               
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 
-                 dark:hover:text-gray-200 "
+                class="inline-flex items-center w-full text-sm font-semibold  
+                transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 
+                @if  (request()->is('admin/categories*'))
+                dark:text-gray-100 text-gray-800
+                @endif"
+                
                 href="{{route('admin.categories.index')}}"
               >
                 <svg
@@ -114,7 +113,11 @@
               ></span>
               @endif
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/articles*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{route('articles')}}"
               >
                 <svg
@@ -132,6 +135,69 @@
                   ></path>
                 </svg>
                 <span class="ml-4">Articles</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/abouts*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/abouts*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('admin.abouts')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+                <span class="ml-4">About Me</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/socials*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/socials*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('socials')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+                <span class="ml-4">Social</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/banners*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/banners*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('admin.banners.index')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+                <span class="ml-4">Banners</span>
               </a>
             </li>
           </ul>
@@ -181,7 +247,7 @@
             
           </a>
           <ul class="mt-6">
-            <li class="relative px-6 py-3">
+            {{-- <li class="relative px-6 py-3">
               <span
                 class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
@@ -206,12 +272,22 @@
                 </svg>
                 <span class="ml-4">Dashboard</span>
               </a>
-            </li>
+            </li> --}}
           </ul>
           <ul>
             <li class="relative px-6 py-3">
+              @if  (request()->is('admin/categories*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center
+                @if  (request()->is('admin/categories*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{route('admin.categories.index')}}"
               >
                 <svg
@@ -232,8 +308,19 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
+              @if  (request()->is('admin/articles*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center
+                
+                @if  (request()->is('admin/articles*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="{{route('articles')}}"
               >
                 <svg
@@ -251,6 +338,69 @@
                   ></path>
                 </svg>
                 <span class="ml-4">Articles</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/abouts*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/abouts*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('admin.abouts')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+                <span class="ml-4">About Me</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/socials*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/socials*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('socials')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+                <span class="ml-4">Social</span>
+              </a>
+            </li>
+            <li class="relative px-6 py-3">
+              @if  (request()->is('admin/banners*'))
+              <span
+                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>
+              @endif
+              <a
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors
+                @if  (request()->is('admin/banners*'))
+                dark:text-gray-100 text-gray-800
+                @endif
+                 duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{route('admin.banners.index')}}"
+              >
+              <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+                <span class="ml-4">Banners</span>
               </a>
             </li>
             <!-- <li class="relative px-6 py-3">
@@ -376,7 +526,7 @@
                   ></path>
                 </svg>
               </button>
-              <!-- <template x-if="isPagesMenuOpen">
+               <template x-if="isPagesMenuOpen">
                 <ul
                   x-transition:enter="transition-all ease-in-out duration-300"
                   x-transition:enter-start="opacity-25 max-h-0"
@@ -417,7 +567,7 @@
                     <a class="w-full" href="pages/blank.html">Blank</a>
                   </li>
                 </ul>
-              </template> -->
+              </template> 
             </li> -->
           </ul>
           <div class="px-6 my-6">
@@ -599,7 +749,12 @@
                 >
                   <img
                     class="object-cover w-8 h-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+                    @if (Auth::user()->profile_img != null)
+                        src="{{ asset('images/' . Auth::user()->profile_img) }}"
+                    @else
+                        src="{{asset('img/img_place.jpg')}}"
+                    @endif
+                   
                     alt=""
                     aria-hidden="true"
                   />
@@ -698,37 +853,22 @@
         </main>
       </div>
     </div>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.1/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckbox.io/CKBox/1.2.1/ckbox.js"></script>
-    <script>
-            ClassicEditor.create( document.querySelector( '#editor' ), {
-                    ckbox: {
-                        tokenUrl: 'https://94417.cke-cs.com/token/dev/bbb59120f2f511daf62737efc0d45249added11fd7166d8d976d6cf53626?limit=10',
-                    },
-                    toolbar: [
-                         'imageUpload', '|', 'heading', '|', 'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'blockQuote', 'indent', 'link', '|', 'bulletedList', 'numberedList'
-                    ],
-                } )
-                .catch( error => {
-                    console.error( error );
-                } );
-        </script>
-    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script>
-  var quill = new Quill('#textarea', {
-    modules: {
-      toolbar: [
-        [{ header: [1, 2, false] }],
-        ['bold', 'italic', 'underline','strike', 'blockquote'],
-        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-        ['link', 'image'],
-        ['clean']
-      ]
-    },
-    // formats: ['header', 'bold', 'italic', 'underline', 'strike', 'blockquote', 'list', 'bullet', 'indent', 'link', 'image', ],
+
+<!-- Include the Quill library -->
+{{-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> --}}
+
+<!-- Initialize Quill editor -->
+{{-- <script>
+  var quill = new Quill('#editor', {
     theme: 'snow'
   });
-</script> -->
+</script> --}}
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons  link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+  });
+</script>
   </body>
 </html>

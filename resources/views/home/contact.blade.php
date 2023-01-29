@@ -17,7 +17,49 @@
     </div>
     <!-- Header End -->
 
-
+    <!-- Booking Start -->
+    <div class="container-fluid booking mt-5 pb-5">
+        <div class="container pb-5">
+            <div class="bg-light shadow" style="padding: 30px;">
+                <form action="{{route('subscribe')}}" method="POST">
+                    @csrf 
+                <div class="row align-items-center" style="min-height: 60px;">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3 mb-md-0">
+                                   <label><h3>Subscribe to our newsletter</h3></label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3 mb-md-0">
+                                    <div class="date" >
+                                        <input type="email" class="form-control p-4 " placeholder="Email Address" name="subscriber"/>
+                                        @error('subscriber')
+                                        <p class="help-block text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            @if (session()->has('success'))
+            <div class="alert alert-success">{{ session()->get('success') }}
+            </div>
+            @endif
+            @if (session()->has('error'))
+            <div class="alert alert-danger">{{ session()->get('error') }}
+            </div>
+            @endif
+        </div>
+    </div>
+    <!-- Booking End -->
     <!-- Contact Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">

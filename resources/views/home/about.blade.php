@@ -13,27 +13,69 @@
         </div>
     </div>
     <!-- Header End -->
-
+        <!-- Booking Start -->
+        <div class="container-fluid booking mt-5 pb-5">
+            <div class="container pb-5">
+                <div class="bg-light shadow" style="padding: 30px;">
+                    <form action="{{route('subscribe')}}" method="POST">
+                        @csrf 
+                    <div class="row align-items-center" style="min-height: 60px;">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3 mb-md-0">
+                                       <label><h3>Subscribe to our newsletter</h3></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 mb-md-0">
+                                        <div class="date" >
+                                            <input type="email" class="form-control p-4 " placeholder="Email Address" name="subscriber"/>
+                                            @error('subscriber')
+                                            <p class="help-block text-danger">{{$message}}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary btn-block" type="submit" style="height: 47px; margin-top: -2px;">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                @if (session()->has('success'))
+                <div class="alert alert-success">{{ session()->get('success') }}
+                </div>
+                @endif
+                @if (session()->has('error'))
+                <div class="alert alert-danger">{{ session()->get('error') }}
+                </div>
+                @endif
+            </div>
+        </div>
+        <!-- Booking End -->
         <!-- About Start -->
         <div class="container-fluid py-5">
             <div class="container pt-5">
                 <div class="row">
                     <div class="col-lg-6" style="min-height: 500px;">
                         <div class="position-relative h-100">
-                            <img class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover;">
+                            <img class="position-absolute w-100 " src="{{asset('images/'. $abouts->image1)}}" style="object-fit: cover;">
                         </div>
                     </div>
                     <div class="col-lg-6 pt-5 pb-lg-5">
                         <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
-                            <h1 class="mb-3">We Provide Best Tour Packages In Your Budget</h1>
-                            <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
+                            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Me</h6>
+                            <h1 class="mb-3">{{ $abouts->title }}</h1>
+                            <p>{{ $abouts->description}}</p>
                             <div class="row mb-4">
                                 <div class="col-6">
-                                    <img class="img-fluid" src="img/about-1.jpg" alt="">
+                                    <img class="img-fluid" src="{{asset('images/'. $abouts->image2)}}" alt="">
                                 </div>
                                 <div class="col-6">
-                                    <img class="img-fluid" src="img/about-2.jpg" alt="">
+                                    <img class="img-fluid" src="{{asset('images/'. $abouts->image3) }}" alt="">
                                 </div>
                             </div>
                             {{-- <a href="" class="btn btn-primary mt-1">Book Now</a> --}}

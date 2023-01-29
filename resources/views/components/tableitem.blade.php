@@ -41,7 +41,7 @@
                   </td> -->
                   <td class="px-4 py-3 text-sm">
                     <!-- format date as MON 19th DEC 2021 -->
-                    {{$item->created_at->format('M dS Y')}}
+                    {{$item->created_at->diffForHumans()}}
                     <!-- {{$item->created_at->format('d/m/Y')}} -->
                   </td>
                   <td class="px-4 py-3">

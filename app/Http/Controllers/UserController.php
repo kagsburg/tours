@@ -52,8 +52,18 @@ class UserController extends Controller
             'name'=>['required', 'min:3'],
             'email'=>['required','email',Rule::unique('users','email')->ignore($id->id)],           
         ]);
+        if ($request->hasFile('profile_image')) {
+            $image = $request->file('profile_image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $image->move($destinationPath, $name);
+            $id->profile_img = $name;
+        }
         $id->name=$users['name'];
         $id->email=$users['email'];
+        $id->contact = $request->contact;
+        $id->address = $request->location;
+        $id->profile_description = $request->bio;
         $id->save();
         return redirect('/profile')->with('success',"User Profile Updated Successfully");
     }

@@ -1,40 +1,19 @@
 <x-layout>
-        <!-- Carousel Start -->
-        <div class="container-fluid p-0">
-            <div id="header-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    @foreach ($banners as $banner)
-                    <div class="carousel-item 
-                    @if ($loop->first)
-                    active
-                    @endif
-                    ">
-                        <img class="w-100" src="{{asset('images/'.$banner->image)}}" alt="Image">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <h4 class="text-white text-uppercase mb-md-3">{{ $banner->title }}</h4>
-                                <h1 class="display-3 text-white mb-md-4">{{ $banner->description }}</h1>
-                                <a href="{{route('about')}}" class="btn btn-primary py-md-3 px-md-5 mt-2">Read More</a>
-                            </div>
-                        </div>
+        <!-- Header Start -->
+        <div class="container-fluid page-header">
+            <div class="container">
+                <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                    <h3 class="display-4 text-white text-uppercase">Blog</h3>
+                    <div class="d-inline-flex text-white">
+                        <p class="m-0 text-uppercase"><a class="text-white" href=".">Home</a></p>
+                        <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                        <p class="m-0 text-uppercase">Blog</p>
                     </div>
-                    @endforeach
                 </div>
-                <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-prev-icon mb-n2"></span>
-                    </div>
-                </a>
-                <a class="carousel-control-next" href="#header-carousel" data-slide="next">
-                    <div class="btn btn-dark" style="width: 45px; height: 45px;">
-                        <span class="carousel-control-next-icon mb-n2"></span>
-                    </div>
-                </a>
             </div>
         </div>
-        <!-- Carousel End -->
-        
-    <!-- Booking Start -->
+        <!-- Header End -->
+            <!-- Booking Start -->
     <div class="container-fluid booking mt-5 pb-5">
         <div class="container pb-5">
             <div class="bg-light shadow" style="padding: 30px;">
@@ -77,37 +56,6 @@
         </div>
     </div>
     <!-- Booking End -->
-  
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-lg-6" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 " src="{{asset('images/'.$abouts->image1)}}" style="object-fit: cover;">
-                    </div>
-                </div>
-                <div class="col-lg-6 pt-5 pb-lg-5">
-                    <div class="about-text bg-white p-4 p-lg-5 my-lg-5">
-                        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Me</h6>
-                        <h1 class="mb-3">{{ $abouts->title }}</h1>
-                        <p>{{$abouts->description}}</p>
-                        <div class="row mb-4">
-                            <div class="col-6">
-                                <img class="img-fluid" src="{{asset('images/'.$abouts->image2)}}" alt="">
-                            </div>
-                            <div class="col-6">
-                                <img class="img-fluid" src="{{asset('images/'.$abouts->image3)}}" alt="">
-                            </div>
-                        </div>
-                        {{-- <a href="" class="btn btn-primary mt-1">Read More</a> --}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-    
             <!-- Blog Start -->
             <div class="container-fluid py-5">
                 <div class="container py-5">
@@ -259,6 +207,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Blog End -->
+    <!-- Blog End -->
 
 </x-layout>
