@@ -49,20 +49,22 @@ class ArticleController extends Controller
             foreach($subscribers as $subscriber){
                 $subscriber->notify(new \App\Notifications\NewArticle($article));
             }
-    
-
-
         return redirect('/admin/articles')->with('success', 'Article saved!');
-        // $article = new Article([
-        //     'title' => $request->get('title'),
-        //     'description' => $request->get('description'),
-        //     'content' => $request->get('content'),
-        //     'category_id' => $request->get('category_id'),
-        //     'user_id' => $request->get('user_id'),
-        //     'cover_image' => $request->get('cover_image')
-        // ]);
-        // $article->save();
-        return redirect('/admin/articles')->with('success', 'Article saved!');
+    }
+    //function to upload image
+    public function uploadArticleImages(Request $request){
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+         ]);
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            // $name = time().'.'.$image->getClientOriginalExtension(); 
+            // $destinationPath = public_path('/img');
+            // $image->move($destinationPath, $name);
+            $imgpath = $image->store('images', 'public');
+            return response()->json(['success'=>'You have successfully upload image.', 'location' =>'/storage/'.$imgpath, 'name' => $imgpath]);
+        }
+       
     }
     //function to delete article
     public function delete(Article $listing){

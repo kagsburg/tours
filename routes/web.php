@@ -54,6 +54,7 @@ Route::get ('/profile',[UserController::class, 'profile'])->name('profile.show')
 Route::put('/profile/update/{id}',[UserController::class, 'update'])->name('profile.update')->middleware('auth');
 Route::put('/profile/updatepassword/{id}',[UserController::class, 'updatepassword'])->name('profile.updatepassword')->middleware('auth');
 Route::get('admin/articles', [App\Http\Controllers\ArticleController::class, 'index'])->name('articles')->middleware('auth');
+Route::post('admin/image/upload',[App\Http\Controllers\ArticleController::class, 'uploadArticleImages'])->name('upload');
 
 Route::put('admin/social/{id}',[App\Http\Controllers\SocialController::class, 'store'])->name('admin.socials.update')->middleware('auth');
 Route::get('admin/socials', [App\Http\Controllers\SocialController::class, 'index'])->name('socials')->middleware('auth');

@@ -855,19 +855,59 @@
     </div>
 
 <!-- Include the Quill library -->
-{{-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> --}}
 
-<!-- Initialize Quill editor -->
-{{-- <script>
-  var quill = new Quill('#editor', {
-    theme: 'snow'
-  });
-</script> --}}
 <script>
+  function example_image_upload_handler (blobInfo, success, failure, progress) {
+  var xhr, formData;
+  const csrfToken = document.querySelector('input[name="_token"]').value;
+  xhr = new XMLHttpRequest();
+  xhr.withCredentials = false;
+  const url = '/admin/image/upload'
+  xhr.open('POST', url);
+  xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+  xhr.upload.onprogress = function (e) {
+    progress(e.loaded / e.total * 100);
+  };
+
+  xhr.onload = function() {
+    var json;
+    if (xhr.status === 403) {
+      failure('HTTP Error: ' + xhr.status, { remove: true });
+      return;
+    }
+
+    if (xhr.status < 200 || xhr.status >= 300) {
+      failure('HTTP Error: ' + xhr.status);
+      return;
+    }
+
+    json = JSON.parse(xhr.responseText);
+    console.log(json)
+    if (!json || typeof json.location != 'string') {
+      failure('Invalid JSON: ' + xhr.responseText);
+      return;
+    }
+
+    // success(json.location);
+  };
+
+  xhr.onerror = function () {
+    failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+  };
+
+  formData = new FormData();
+  formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+  xhr.send(formData);
+};
+
   tinymce.init({
     selector: 'textarea',
-    plugins: 'anchor autolink charmap codesample emoticons  link lists media searchreplace table visualblocks wordcount',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    plugins: 'anchor autolink charmap codesample emoticons  link lists media searchreplace table visualblocks wordcount image',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | image link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat ',
+    // image_prepend_url: 'https://www.example.com/images/',
+    // images_upload_handler: example_image_upload_handler,
+    images_upload_url: '/admin/image/upload',
   });
 </script>
   </body>
